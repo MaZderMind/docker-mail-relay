@@ -18,7 +18,7 @@ echo $RELAY_HOST_NAME > /etc/mailname
 
 # Templates
 j2 /root/conf/postfix-main.cf > /etc/postfix/main.cf
-j2 /root/conf/sasl_passwd > /etc/postfix/sasl_passwd
+j2 /root/conf/sasl_passwd | tr -d '\n' > /etc/postfix/sasl_passwd
 postmap /etc/postfix/sasl_passwd
 
 # Launch

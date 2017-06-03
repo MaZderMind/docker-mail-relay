@@ -1,8 +1,8 @@
 FROM alpine:latest
-MAINTAINER Uri Savelchev <alterrebe@gmail.com>
+MAINTAINER Michael Struski <michael@struscode.com>
 
 # Packages: update
-RUN apk -U add postfix ca-certificates libsasl py-pip supervisor rsyslog
+RUN apk --no-cache add postfix ca-certificates libsasl py-pip supervisor rsyslog
 RUN pip install j2cli
 
 # Add files
