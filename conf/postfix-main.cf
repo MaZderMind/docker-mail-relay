@@ -43,3 +43,8 @@ inet_interfaces = all
 inet_protocols = ipv4
 smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
 
+{% if RELAY_FORCE_SENDER %}
+sender_canonical_classes = envelope_sender, header_sender
+sender_canonical_maps =  regexp:/etc/postfix/sender_canonical_maps
+smtp_header_checks = regexp:/etc/postfix/header_check
+{% endif %}
